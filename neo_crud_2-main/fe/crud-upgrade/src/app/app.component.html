@@ -1,0 +1,15 @@
+<!-- <div style="text-align: center;">
+  <div class="container">
+    <button [routerLink]="['/list-user']" class="btn btn-info">List</button>
+    <button [routerLink]="['/add-user']" class="btn btn-info" style="margin-left: 10px;">Add</button>
+  </div>
+</div> -->
+<div style="display: none;">
+  <div class="navbar">
+    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a [routerLink]="['/list-user']"><i class="fa fa-fw fa-envelope"></i> List</a>
+    <a [routerLink]="['/add-user']"><i class="fa fa-fw fa-user"></i> Create</a>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

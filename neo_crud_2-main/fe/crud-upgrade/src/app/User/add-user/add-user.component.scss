@@ -1,0 +1,76 @@
+.row {
+    width: 200%;
+}
+
+.rows {
+    text-align: center;
+}
+
+
+.form-control {
+    width: 400px;
+    margin-bottom: 20px;
+    margin-left: 18px;
+    height: 55px;
+
+    option {
+        height: 100px;
+        font-size: 18px;
+    }
+}
+
+.form-control2 {
+    width: 327px;
+    margin-bottom: 20px;
+    margin-left: 18px;
+    height: 55px;
+
+    option {
+        height: 100px;
+        font-size: 20px;
+    }
+}
+
+.mat-mdc-radio-button~.mat-mdc-radio-button {
+    margin-left: 16px;
+}
+
+
+/////
+/// 
+/// 
+.radio-button {
+    :host ::ng-deep .mat-radio-outer-circle {
+        border-radius: 2px;
+    }
+
+    :host ::ng-deep .mat-radio-inner-circle {
+        border-radius: 2px;
+        background-color: transparent !important;
+        border-bottom: 4px solid white;
+        border-right: 4px solid white;
+        height: 30px;
+        width: 15px;
+        margin-top: -8px;
+        margin-left: 3px;
+    }
+
+    :host ::ng-deep .mat-radio-checked .mat-radio-outer-circle {
+        background: #ff4081 !important;
+    }
+
+    :host ::ng-deep .mat-radio-checked .mat-radio-inner-circle {
+        transform: rotate(45deg) scale(0.5);
+    }
+
+    :host ::ng-deep .mat-radio-button .mat-radio-ripple {
+        height: 20px;
+        /*double of your required circle radius*/
+        width: 20px;
+        /*double of your required circle radius*/
+        left: calc(50% - 10px);
+        /*'10px'-same as your required circle radius*/
+        top: calc(50% - 10px);
+        /*'10px'-same as your required circle radius */
+    }
+}
