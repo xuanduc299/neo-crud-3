@@ -21,7 +21,7 @@ public class Convert {
         product.setSectors(productDTO.getSectors());
         product.setProvince(productDTO.getProvince());
         product.setDistrict(productDTO.getDistrict());
-        product.setVillage(productDTO.getVillage());
+        product.setWard(productDTO.getWard());
 
     }
 

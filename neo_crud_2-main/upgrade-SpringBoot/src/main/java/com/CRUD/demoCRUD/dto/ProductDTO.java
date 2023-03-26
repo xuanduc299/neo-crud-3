@@ -31,7 +31,7 @@ public class ProductDTO extends BaseObjectDto {
 
     private String district;
 
-    private String village;
+    private String ward;
 
     private List<CustomerDTO> customerDto;
 
@@ -57,7 +57,7 @@ public class ProductDTO extends BaseObjectDto {
             this.setSectors(entity.getSectors());
             this.setProvince(entity.getProvince());
             this.setDistrict(entity.getDistrict());
-            this.setVillage(entity.getVillage());
+            this.setWard(entity.getWard());
         }
     }
 
@@ -157,12 +157,13 @@ public class ProductDTO extends BaseObjectDto {
         this.district = district;
     }
 
-    public String getVillage() {
-        return village;
+
+    public String getWard() {
+        return ward;
     }
 
-    public void setVillage(String village) {
-        this.village = village;
+    public void setWard(String ward) {
+        this.ward = ward;
     }
 
     public List<CustomerDTO> getCustomerDto() {

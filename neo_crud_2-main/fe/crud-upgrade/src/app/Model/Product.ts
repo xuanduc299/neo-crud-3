@@ -16,7 +16,7 @@ export class Product {
     sectors?: string;
     province?: any;
     district?: string;
-    village?: string;
+    ward?: string;
 
 
 }

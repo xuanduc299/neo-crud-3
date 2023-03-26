@@ -1,8 +1,7 @@
 export class Province {
-  id: number;
-  name: string;
-  constructor(id: number, name: string) {
-    this.id = id;
-    this.name = name;
-  }
+  name?: string;
+  code?: any;
+  division_type?: string;
+  codename?: string;
+  phone_code?: any;
 }

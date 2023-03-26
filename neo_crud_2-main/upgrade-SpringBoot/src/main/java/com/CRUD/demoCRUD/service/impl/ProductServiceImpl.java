@@ -18,12 +18,12 @@ import java.util.UUID;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
-    private final ProductValidate productValidate;
+//    private final ProductValidate productValidate;
     private final Convert convert;
 
     public ProductServiceImpl(ProductRepository productRepository, ProductValidate productValidate, Convert convert) {
         this.productRepository = productRepository;
-        this.productValidate = productValidate;
+//        this.productValidate = productValidate;
         this.convert = convert;
     }
 
@@ -54,10 +54,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Response<ProductDTO> create(ProductDTO dto) {
-        ResponseStatus status = productValidate.validateProduct(null, dto);
-        if (status != ResponseStatus.SUCCESS) {
-            return new Response<>(status);
-        }
+//        ResponseStatus status = productValidate.validateProduct(null, dto);
+//        if (status != ResponseStatus.SUCCESS) {
+//            return new Response<>(status);
+//        }
 
         Product product = new Product();
         convert.convertDataIntoDTO(dto, product);
@@ -67,10 +67,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Response<ProductDTO> edit(ProductDTO dto, UUID id) {
-        ResponseStatus status = productValidate.validateProduct(id, dto);
-        if (status != ResponseStatus.SUCCESS) {
-            return new Response<>(status);
-        }
+//        ResponseStatus status = productValidate.validateProduct(id, dto);
+//        if (status != ResponseStatus.SUCCESS) {
+//            return new Response<>(status);
+//        }
 
         Product product = productRepository.getProductById(id);
         convert.convertDataIntoDTO(dto, product);

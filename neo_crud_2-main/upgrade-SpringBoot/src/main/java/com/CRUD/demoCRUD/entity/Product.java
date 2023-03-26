@@ -34,7 +34,7 @@ public class Product extends BaseObject{
     private String district;
 
     @Column
-    private String village;
+    private String ward;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "product")
     private List<Customer> customerList;
@@ -131,12 +131,12 @@ public class Product extends BaseObject{
         this.district = district;
     }
 
-    public String getVillage() {
-        return village;
+    public String getWard() {
+        return ward;
     }
 
-    public void setVillage(String village) {
-        this.village = village;
+    public void setWard(String ward) {
+        this.ward = ward;
     }
 
     public void setSectors(String sectors) {

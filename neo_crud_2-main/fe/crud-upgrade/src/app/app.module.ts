@@ -14,6 +14,7 @@ import { StudentFilterPipePipe } from './student-filter-pipe.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from 'src/libs/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
