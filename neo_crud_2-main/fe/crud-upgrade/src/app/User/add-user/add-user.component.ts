@@ -19,11 +19,8 @@ export class AddUserComponent implements OnInit {
   submitted = false;
 
   Provinces?: Province[];
-  selectedProvince?: any;
   Districts?: District[];
-  selectedDistrict?: any;
   Wards?: Ward[];
-  selectedWard?: any;
   id?: any;
   constructor(private fb: FormBuilder, private router: Router, private service: ServiceUserService) {
     this.formInit();

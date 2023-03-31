@@ -13,6 +13,7 @@ import java.util.UUID;
 public interface ProductRepository extends JpaRepository<Product, UUID> {
     Product getProductById(UUID id);
     boolean existsByName(String name);
+
     @Query("SELECT p FROM tb_product_2 p WHERE p.name LIKE %:name%")
     List<Product> search(@Param("name") String name);
 }

@@ -1,6 +1,7 @@
 <div class="container">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header" style="
+            background-color: #829dda;">
             <h1 style="text-align: center;font-weight: bold ;">List Product</h1>
         </div>
         <div class="col-md-6 col-12">
@@ -21,30 +22,31 @@
 
             <input [(ngModel)]="searchName" (keydown.enter)="checkSearch()" class="form-control" placeholder="Search..."
                 style="margin: 10px auto; width: 50%;height: 60px;font-size: larger;" />
-            <button [routerLink]="['/add-user']" class="btn btn-warning"
-                style="float: right;width: 100px;height: 50px;background-color: rgb(45, 169, 14);">Create</button>
-
+            <!-- <button [routerLink]="['/add-user']" class="btn btn-warning"
+                style="float: right;width: 100px;height: 50px;background-color: rgb(131, 193, 235);">Create</button> -->
+            <a [routerLink]="['/add-user']"><i class="fa fa-plus-square"
+                    style="font-size:48px;color:rgb(130, 157, 218);float: right;margin-bottom: 20px;"></i></a>
             <table class="table table-hover">
                 <thead>
-                    <tr class="text-center">
-                        <th>Id</th>
-                        <th>maSp</th>
-                        <th (click)="sortName()">name</th>
-                        <th>date</th>
-                        <th>color</th>
-                        <th (click)="sortQuantity()">quantity</th>
-                        <th>brand</th>
-                        <th>material</th>
-                        <th>sectors</th>
-                        <th>province</th>
-                        <th>district</th>
-                        <th>ward</th>
-
+                    <tr class="text-center" style="background-color: #829dda;">
+                        <th class="text">Id</th>
+                        <th>Masp</th>
+                        <th (click)="sortName()">Name</th>
+                        <th>Date</th>
+                        <th>Color</th>
+                        <th (click)="sortQuantity()">Quantity</th>
+                        <th>Brand</th>
+                        <th>Material</th>
+                        <th>Sectors</th>
+                        <th>Province</th>
+                        <th>District</th>
+                        <th>Ward</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr
-                        *ngFor="let product of product | studentFilterPipe:searchText | paginate : { itemsPerPage: basicSelectedOption, currentPage: p }">
+                    <tr *ngFor="let product of product | studentFilterPipe:searchText | paginate : { itemsPerPage: basicSelectedOption, currentPage: p }"
+                        style="height: 20px; ">
                         <td>{{product.id}}</td>
                         <td>{{product.maSp}}</td>
                         <td>{{product.name}}</td>
@@ -54,13 +56,32 @@
                         <td>{{product.brand}}</td>
                         <td>{{product.material}}</td>
                         <td>{{product.sectors}}</td>
-                        <td>{{product.province}}</td>
-                        <td>{{product.district}}</td>
-                        <td>{{product.ward}}</td>
+                        <!-- <ng-container *ngFor="let province of Provinces">
+                            <td *ngIf="province.province_id == product.province">{{province.name}}</td>
+                        </ng-container>
+                        <ng-container *ngFor="let district of Districts">
+                            <td *ngIf="district.district_id == product.district">{{district.name}}</td>
+                        </ng-container>
+                        <ng-container *ngFor="let ward of Wards">
+                            <td *ngIf="ward.ward_id == product.ward">{{ward.name}}</td>
+                        </ng-container> -->
+
+                        <td>{{product._province}}</td>
+                        <td>{{product._district}}</td>
+                        <td>{{product._ward}}</td>
 
                         <td>
-                            <button (click)="updateUser(product)" class="btn btn-warning">Edit</button>
-                            <button (click)="deleteUser(product)" class="btn btn-danger">Delete</button>
+                            <!-- <button (click)="updateUser(product)" class="btn btn-warning">Edit</button>
+                            <button (click)="deleteUser(product)" class="btn btn-danger">Delete</button> -->
+
+                            <a (click)="updateUser(product)"><i class="fa fa-pencil-square-o"
+                                    style="font-size:24px;color:rgb(0, 0, 0)"></i></a>
+                            <a (click)="deleteUser(product)"><i class="fa fa-times-rectangle"
+                                    style="font-size:24px;color:rgb(247, 60, 60)"></i></a>
+                            <!-- <a href="../../../img/update.png" (click)="updateUser(product)">a</a>
+                            <a (click)="deleteUser(product)"><i class="fas fa-window-close" style="color: #d60a0a;"></i>
+                            </a> -->
+
                         </td>
 
                     </tr>

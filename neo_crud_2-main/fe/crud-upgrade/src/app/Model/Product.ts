@@ -1,3 +1,7 @@
+import { District } from "./District";
+import { Province } from "./Province";
+import { Ward } from "./Ward";
+
 export class Product {
     // id?: any;
     // name?: string;
@@ -15,8 +19,11 @@ export class Product {
     material?: string;
     sectors?: string;
     province?: any;
-    district?: string;
-    ward?: string;
+    district?: any;
+    ward?: any;
+    _province?: string;
+    _district?: string;
+    _ward?: string;
 
 
 }

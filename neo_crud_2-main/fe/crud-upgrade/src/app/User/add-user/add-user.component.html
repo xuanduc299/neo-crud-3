@@ -35,8 +35,9 @@
                     title="Select Student Branch" [(ngModel)]="product.material">
                     <option value="Nhựa">Nhựa</option>
                     <option value="Gỗ">Gỗ</option>
-                    <option value="Xi Măng">Xi Măng</option>
-                    <option value="Kim Loại">Kim Loại</option>
+                    <option value="Xi Măng">Thép</option>
+                    <option value="Kim Loại">Nhôm</option>
+                    <option value="Sắt">Sắt</option>
                 </select>
             </div>
         </div>
@@ -83,42 +84,16 @@
             </mat-form-field>
         </div>
 
-        <div class="row mt-3 radio-button">
-            <!-- <mat-form-field class="col-md-6">
-                <mat-label>brand</mat-label>
-                <input matInput formControlName="brand" placeholder="Enter brand" [(ngModel)]="product.brand">
-                <mat-error *ngIf="this.form.controls.brand.hasError('required')">
-                    brand is <strong>required</strong>
-                </mat-error>
-            </mat-form-field> -->
-
+        <div class="row-style mt-3 radio-button" style="text-align: center;">
             <mat-radio-group class="smallRadio" aria-label="Select an option" formControlName="brand"
                 [(ngModel)]="product.brand">
-                <mat-radio-button value="NHựa">NHựa 1</mat-radio-button>
-                <mat-radio-button value="GỖ">GỖ 2</mat-radio-button>
+                <mat-radio-button value="Nhựa">Nhựa Long Thanh</mat-radio-button>
+                <mat-radio-button value="GỖ">Gỗ Kabi</mat-radio-button>
+                <mat-radio-button value="Sắt">Sắt Việt Đức</mat-radio-button>
+                <mat-radio-button value="Sắt">Thép Hoà phát</mat-radio-button>
+                <mat-radio-button value="Nhôm">Nhôm Hyundai</mat-radio-button>
             </mat-radio-group>
         </div>
-
-        <!-- <div class="row mt-3">
-            <mat-form-field class="col-md-6">
-                <mat-label>material</mat-label>
-                <input matInput formControlName="material" placeholder="Enter material" [(ngModel)]="product.material">
-                <mat-error *ngIf="this.form.controls.material.hasError('required')">
-                    material is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-        </div> -->
-
-        <!-- <div class="row mt-3">
-            <mat-form-field appearance="fill">
-                <mat-label>material products</mat-label>
-                <mat-select [(ngModel)]="product.material">
-                    <mat-option *ngFor="let products of product_material" [value]="product.material">
-                        {{products.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>       
-        </div> -->
 
         <div class="row mt-3">
             <mat-form-field class="col-md-6">
@@ -130,55 +105,31 @@
             </mat-form-field>
         </div>
 
-        <!-- <div class="row mt-3">
-            <select class="form-control2" id="city" (change)="changeCity($event)" data-toggle="tooltip"
-                data-placement="right" formControlName="province" [(ngModel)]="product.province">
-                <option *ngFor="let data of cities" value="{{data.city}}">
-                    {{data.city}}
-                </option>
-            </select>
-            <br />
-            <select class="form-control2" name="district" id="district" data-toggle="tooltip" data-placement="right"
-                formControlName="district" [(ngModel)]="product.district">
-                <option *ngFor="let data of districts" value="{{data}}">
-                    {{data}}
-                </option>
-            </select>
-            <select class="form-control2" name="ward" id="ward" data-toggle="tooltip" data-placement="right"
-                (change)="changeDistrict($event)" formControlName="ward" [(ngModel)]="product.ward">
-                <option *ngFor="let data of villages" value="{{data}}">
-                    {{data}}
-                </option>
-            </select>
-        </div> -->
-
         <div class="row mt-3">
             <div class="form-group">
-                <label for="province">Province:</label>
-                <select class="form-control" id="province" [(ngModel)]="product.province" formControlName="province"
-                    [ngClass]="{ 'is-invalid': submitted && f['province'].errors }">
+                <!-- <label for="province">Province:</label> -->
+                <select class="form-control-3" id="province" [(ngModel)]="product.province" formControlName="province">
                     <option value="0" selected disabled>Select Province</option>
-                    <option *ngFor="let province of Provinces" value="{{province.code}}">{{province.name}}</option>
+                    <option *ngFor="let province of Provinces" value="{{province.province_id}}">{{province.name}}
+                    </option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="district">District:</label>
-                <select class="form-control" id="district" [(ngModel)]="product.district" formControlName="district"
-                    [ngClass]="{ 'is-invalid': submitted && f['district'].errors }">
+                <!-- <label for="district">District:</label> -->
+                <select class="form-control-3" id="district" [(ngModel)]="product.district" formControlName="district">
                     <option value="0" selected disabled>Select District</option>
                     <ng-container *ngFor="let district of Districts">
-                        <option *ngIf="district.province_code == product.province" value="{{district.code}}">
+                        <option *ngIf="district.province_id == product.province" value="{{district.district_id}}">
                             {{district.name}}</option>
                     </ng-container>
                 </select>
             </div>
             <div class="form-group">
-                <label for="ward">Ward:</label>
-                <select class="form-control" id="ward" [(ngModel)]="product.ward" formControlName="ward"
-                    [ngClass]="{ 'is-invalid': submitted && f['ward'].errors }">
+                <!-- <label for="ward">Ward:</label> -->
+                <select class="form-control-3" id="ward" [(ngModel)]="product.ward" formControlName="ward">
                     <option value="0" selected disabled>Select Ward</option>
                     <ng-container *ngFor="let ward of Wards">
-                        <option *ngIf="ward.district_code == product.district" value="{{ward.code}}">{{ward.name}}
+                        <option *ngIf="ward.district_id == product.district" value="{{ward.ward_id}}">{{ward.name}}
                         </option>
                     </ng-container>
                 </select>

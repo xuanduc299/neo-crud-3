@@ -1,7 +1,8 @@
+import { Ward } from "./Ward";
+
 export class District {
     name?: string;
-    code?: any;
-    division_type?: string;
-    codename?: string;
-    province_code?: any;
+    district_id?: any;
+    province_id?: string;
+    wardListDto?: any;
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { District } from 'src/app/Model/District';
 import { Product } from 'src/app/Model/Product';
+import { Province } from 'src/app/Model/Province';
+import { Ward } from 'src/app/Model/Ward';
 // import { User } from 'src/app/Model/User';
 import { ServiceUserService } from 'src/app/Service/service-user.service';
 
@@ -18,6 +21,12 @@ export class ListUserComponent implements OnInit {
   searchName: any;
   sort!: boolean;
   basicSelectedOption: number = 5;
+
+  Provinces?: Province[];
+  Districts?: District[];
+  Wards?: Ward[];
+  id?: any;
+
   // searchValue: string = "3";
   constructor(private router: Router, private service: ServiceUserService) { }
 
@@ -28,6 +37,9 @@ export class ListUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+    this.getProvince();
+    this.getDistricts();
+    this.getAllWards();
   }
 
   getUsers() {
@@ -67,6 +79,7 @@ export class ListUserComponent implements OnInit {
   deleteUser(product: Product) {
     this.service.deleteUser(product).subscribe(data => {
       this.product = this.product!.filter((p: any) => p !== product);
+
       alert("delete successfull")
     })
   }
@@ -113,5 +126,29 @@ export class ListUserComponent implements OnInit {
       this.product.sort((a: any, b: any) => b.quantity - a.quantity);
     }
   }
+
+  getProvince() {
+    this.service.getProvince().subscribe(data => {
+      this.Provinces = data;
+
+    });
+  }
+  getDistricts() {
+    this.service.getDistrict().subscribe(data => {
+      this.Districts = data;
+
+    });
+  }
+  getAllWards() {
+    this.service.getWard().subscribe(data => {
+      this.Wards = data;
+
+    });
+  }
+
+  /////
+
+
+
 
 }

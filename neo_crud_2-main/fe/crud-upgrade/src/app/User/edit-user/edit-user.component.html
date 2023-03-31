@@ -35,8 +35,10 @@
                     title="Select Student Branch" [(ngModel)]="product.material">
                     <option value="Nhựa">Nhựa</option>
                     <option value="Gỗ">Gỗ</option>
-                    <option value="Xi Măng">Xi Măng</option>
-                    <option value="Kim Loại">Kim Loại</option>
+                    <option value="Xi Măng">Thép</option>
+                    <option value="Kim Loại">Nhôm</option>
+                    <option value="Sắt">Sắt</option>
+
                 </select>
             </div>
         </div>
@@ -84,19 +86,12 @@
         </div>
 
         <div class="row_select mt-3">
-            <!-- <mat-form-field class="col-md-6">
-                <mat-label>brand</mat-label>
-                <input matInput formControlName="brand" placeholder="Enter brand" [(ngModel)]="product.brand">
-                <mat-error *ngIf="this.form.controls.brand.hasError('required')">
-                    brand is <strong>required</strong>
-                </mat-error>
-            </mat-form-field> -->
-
             <mat-radio-group aria-label="Select an option" formControlName="brand" [(ngModel)]="product.brand">
-                <mat-radio-button value="Nhựa">Nhựa</mat-radio-button>
-                <mat-radio-button value="GỖ">GỖ</mat-radio-button>
-                <mat-radio-button value="Sắt">Sắt</mat-radio-button>
-                <mat-radio-button value="Nhôm">Nhôm</mat-radio-button>
+                <mat-radio-button value="Nhựa">Nhựa Long Thanh</mat-radio-button>
+                <mat-radio-button value="GỖ">Gỗ Kabi</mat-radio-button>
+                <mat-radio-button value="Sắt">Sắt Việt Đức</mat-radio-button>
+                <mat-radio-button value="Sắt">Thép Hoà phát</mat-radio-button>
+                <mat-radio-button value="Nhôm">Nhôm Hyundai</mat-radio-button>
             </mat-radio-group>
         </div>
 
@@ -110,66 +105,31 @@
             </mat-form-field>
         </div>
 
-        <!-- <div class="col-md-4 col-12">
+        <div class="row mt-3">
             <div class="form-group">
-                <label class="mt-2">City</label>
-                <select class="form-control mt-2" [(ngModel)]="province_code" (ngModelChange)="getProvince()">
-                    <option disabled selected>Chọn Tỉnh/Thành phố</option>
-                    <option *ngFor="let data of city" value="{{data.id}}"> {{ data.name }}
+                <!-- <label for="province">Province:</label> -->
+                <select class="form-control-3" id="province" [(ngModel)]="product.province" formControlName="province">
+                    <option value="0" selected disabled>Select Province</option>
+                    <option *ngFor="let province of Provinces" value="{{province.province_id}}">{{province.name}}
                     </option>
                 </select>
             </div>
-        </div>
-        <div class="col-md-4 col-12">
             <div class="form-group">
-                <label class="mt-2">District</label>
-                <select class="form-control mt-2">
-                    <option selected disabled> Chọn Quận/Huyện</option>
-                    <ng-container *ngFor="let districts of district">
-                        <option *ngIf="districts.provinceId == province_code"> {{ districts.name
-                            }}
-                        </option>
-                    </ng-container>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-4 col-12">
-            <div class="form-group">
-                <label class="mt-2">villages</label>
-                <select class="form-control mt-2">
-                    <option disabled selected>Chọn Xã/Phường</option>
-                    <option *ngFor="let villages of village"> {{ villages.name }}</option>
-                </select>
-            </div>
-        </div> -->
-
-        <div class="row mt-3">
-            <div class="form-group">
-                <label for="province">Province:</label>
-                <select class="form-control" id="province" [(ngModel)]="product.province" formControlName="province"
-                    [ngClass]="{ 'is-invalid': submitted && f['province'].errors }">
-                    <option value="0" selected disabled>Select Province</option>
-                    <option *ngFor="let province of Provinces" value="{{province.code}}">{{province.name}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="district">District:</label>
-                <select class="form-control" id="district" [(ngModel)]="product.district" formControlName="district"
-                    [ngClass]="{ 'is-invalid': submitted && f['district'].errors }">
+                <!-- <label for="district">District:</label> -->
+                <select class="form-control-3" id="district" [(ngModel)]="product.district" formControlName="district">
                     <option value="0" selected disabled>Select District</option>
                     <ng-container *ngFor="let district of Districts">
-                        <option *ngIf="district.province_code == product.province" value="{{district.code}}">
+                        <option *ngIf="district.province_id == product.province" value="{{district.district_id}}">
                             {{district.name}}</option>
                     </ng-container>
                 </select>
             </div>
             <div class="form-group">
-                <label for="ward">Ward:</label>
-                <select class="form-control" id="ward" [(ngModel)]="product.ward" formControlName="ward"
-                    [ngClass]="{ 'is-invalid': submitted && f['ward'].errors }">
+                <!-- <label for="ward">Ward:</label> -->
+                <select class="form-control-3" id="ward" [(ngModel)]="product.ward" formControlName="ward">
                     <option value="0" selected disabled>Select Ward</option>
                     <ng-container *ngFor="let ward of Wards">
-                        <option *ngIf="ward.district_code == product.district" value="{{ward.code}}">{{ward.name}}
+                        <option *ngIf="ward.district_id == product.district" value="{{ward.ward_id}}">{{ward.name}}
                         </option>
                     </ng-container>
                 </select>

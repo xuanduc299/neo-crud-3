@@ -46,27 +46,38 @@ export class ServiceUserService {
     return this.http.get(`${this.Url}/search/${searchName}`);
   }
   ////
+  // getProvince(): Observable<any> {
+  //   return this.http.get("https://provinces.open-api.vn/api/p/");
+  // }
+  // getProvinceById(id: any): Observable<any> {
+  //   return this.http.get("https://provinces.open-api.vn/api/p/" + id);
+  // }
+
+  // getDistrict(): Observable<any> {
+  //   return this.http.get("https://provinces.open-api.vn/api/d/");
+  // }
+
+  // getDistrictById(id: any): Observable<any> {
+  //   return this.http.get("https://provinces.open-api.vn/api/d/" + id);
+  // }
+
+  // getWard(): Observable<any> {
+  //   return this.http.get("https://provinces.open-api.vn/api/w/");
+  // }
+
+  // getWardById(id: any): Observable<any> {
+  //   return this.http.get("https://provinces.open-api.vn/api/w/" + id);
+  // }
+
+
   getProvince(): Observable<any> {
-    return this.http.get("https://provinces.open-api.vn/api/p/");
+    return this.http.get("http://localhost:8082/province/");
   }
-  getProvinceById(id: any): Observable<any> {
-    return this.http.get("https://provinces.open-api.vn/api/p/" + id);
-  }
-
   getDistrict(): Observable<any> {
-    return this.http.get("https://provinces.open-api.vn/api/d/");
+    return this.http.get("http://localhost:8082/district/");
   }
-
-  getDistrictById(id: any): Observable<any> {
-    return this.http.get("https://provinces.open-api.vn/api/d/" + id);
-  }
-
   getWard(): Observable<any> {
-    return this.http.get("https://provinces.open-api.vn/api/w/");
-  }
-
-  getWardById(id: any): Observable<any> {
-    return this.http.get("https://provinces.open-api.vn/api/w/" + id);
+    return this.http.get("http://localhost:8082/ward/");
   }
 
 }
